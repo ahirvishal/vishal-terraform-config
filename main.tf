@@ -10,13 +10,13 @@ module "configs" {
 
 }
 
-module "configs" {
-  source = "./modules/configs"
+module "aggregator" {
+  source = "./modules/aggregator"
 
 
 }
 
-module "configs" {
+module "iam" {
   source = "./modules/iam"
 
 

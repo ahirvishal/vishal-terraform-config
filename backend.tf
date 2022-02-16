@@ -1,9 +1,9 @@
 terraform {
   backend "s3" {
-    key            = "vishalahir.tfstate"
-    bucket         = "ahir-test-bucket"
+    key            = ""
+    bucket         = ""
     region         = "us-east-1"
-    dynamodb_table = "vishal_test"
+    dynamodb_table = ""
     access_key     = ""
     secret_key     = ""
   }

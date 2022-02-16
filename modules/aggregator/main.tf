@@ -5,7 +5,7 @@ resource "aws_config_configuration_aggregator" "organization" {
   name = var.aggregator_name
 
   account_aggregation_source {
-    account_ids = ["401167881366"]
+    account_ids = var.account_ids
     regions     = ["us-east-1"]
   }  
 #   organization_aggregation_source {
