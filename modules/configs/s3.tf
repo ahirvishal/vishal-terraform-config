@@ -1,19 +1,11 @@
 resource "aws_s3_bucket" "new_config_bucket" {
   bucket = "config-bucket-${data.aws_caller_identity.current.account_id}-${data.aws_region.current.name}"
-  acl    = "private"
-
-  dynamic "server_side_encryption_configuration" {
-    for_each = var.encryption_enabled ? ["true"] : []
-
-    content {
-      rule {
-        apply_server_side_encryption_by_default {
-          sse_algorithm = "AES256"
-        }
-      }
-    }
-  }
 }
+
+resource "aws_s3_bucket_acl" "new_config_bucket_acl" {
+  bucket = aws_s3_bucket.new_config_bucket.id
+  acl    = "private"
+} 
 
 resource "aws_s3_bucket_policy" "config_logging_policy" {
   bucket = aws_s3_bucket.new_config_bucket.id
