@@ -1,11 +1,16 @@
 # -----------------------------------------------------------
 # set up the Config Aggregator
 # -----------------------------------------------------------
+
+# Get current account number
+data "aws_caller_identity" "current" {}
+# data "aws_organizations_organization" "example" {}
+
 resource "aws_config_configuration_aggregator" "organization" {
   name = var.aggregator_name
 
   account_aggregation_source {
-    account_ids = var.account_ids
+    account_ids = local.account_ids
     regions     = ["us-east-1"]
   }  
 #   organization_aggregation_source {
