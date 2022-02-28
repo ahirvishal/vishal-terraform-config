@@ -7,8 +7,9 @@ variable "awsSecretKey" {
 }
 
 variable "region" {
-  type    = list(any)
-  default = ["us-east-1", "af-south-1", "ap-southeast-1"]
+  description = "List of the regions"
+  type        = list(any)
+  default     = ["us-east-1", "af-south-1", "ap-southeast-1"]
 }
 
 variable "selector" {

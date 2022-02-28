@@ -13,7 +13,7 @@ module "configs" {
 module "aggregator" {
   source = "./modules/aggregator"
 
-  config_role_name=module.iam.config_role_name
+  config_role_name = module.iam.config_role_name
 }
 
 module "iam" {

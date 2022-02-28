@@ -1,6 +1,6 @@
 variable "config_role_name" {
   description = "Name of Organization Config Role"
-  default = "OrganizationConfigRole"
+  default     = "OrganizationConfigRole"
 }
 
 variable "primary_region" {
@@ -25,7 +25,7 @@ variable "encryption_enabled" {
 # where the values are fed in as a mapped string.
 variable "password_parameters" {
   description = "A map of strings in JSON format."
-  type = map(string)
+  type        = map(string)
   default = {
     iam-password-policy = <<EOF
     { 
