@@ -5,7 +5,7 @@ pipeline {
         stage('Terraform Init') {
             when {
                 branch "test"
-                changeset "modules/*/*.tf"
+                // changeset "modules/*/*.tf"
             }
             steps {
                 withCredentials([string(credentialsId: 'awsAccessKey', variable: 'awsAccessKey'), string(credentialsId: 'awsSecretKey', variable: 'awsSecretKey')]) {
