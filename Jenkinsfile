@@ -2,11 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Git Checkout') {
-            steps {
-                git branch: 'vishal', url: 'https://github.com/ahirvishal/vishal-terraform-config.git'
-            }
-        }
         stage('Terraform Init') {
             when {
                 branch "test"
