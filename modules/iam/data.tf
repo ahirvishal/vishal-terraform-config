@@ -5,4 +5,6 @@ data "aws_region" "current" {}
 data "aws_caller_identity" "current" {}
 
 # Retrieves the partition that it resides in
-data "aws_partition" "current" {}
+data "aws_partition" "current" {
+    
+}
