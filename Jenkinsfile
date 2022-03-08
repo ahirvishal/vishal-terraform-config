@@ -2,6 +2,12 @@ pipeline {
     agent any
 
     stages {
+      stage('Git Checkout') {
+        steps {
+          git branch: 'test', url: 'https://github.com/ahirvishal/vishal-terraform-config.git'
+        }
+      }
+
         stage('Terraform Init') {
             when {
                 branch "test"
@@ -10,7 +16,7 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'awsAccessKey', variable: 'awsAccessKey'), string(credentialsId: 'awsSecretKey', variable: 'awsSecretKey')]) {
                   // some block
-                  bat " terraform init -var 'awsAccessKey=${awsAccessKey}' -var 'awsSecretKey=${awsSecretKey}' "
+                  bat "terraform --version"
                 }
             }
         }
