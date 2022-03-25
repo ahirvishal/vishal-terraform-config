@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git Checkout') {
+            steps {
+                git branch: 'test', url: 'https://github.com/ahirvishal/vishal-terraform-config.git'
+                sh "ls"
+                script {
+                    sh "ls"
+                    sh "./test.sh"
+                }
+            }
+        }
+    }
+    post { 
+        always { 
+            cleanWs()
+        }
+    }
+}
